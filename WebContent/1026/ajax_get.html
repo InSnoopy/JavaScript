@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+	<input type="text" name="poli" value="폴리">
+	<input type="button" value="get" onclick="f_getAjax()">
+	<input type="button" value="post" onclick="f_postAjax()">
+	<div id="disp"></div>
+
+<script>
+
+	var v_val = document.querySelector('input[name=poli]').value;
+	var v_disp = document.querySelector('#disp');
+	
+	function f_getAjax(){
+		// console.log(v_val);
+		// ajax기본구문
+		var req = new XMLHttpRequest();
+// 		req.open("get","ajax_get.jsp?dataNm=" + v_val,true);
+		req.open("get","/webPro/Ajax?aaa=" + v_val,true);
+		req.onreadystatechange=function(){
+			if(req.readyState == 4 && req.status == 200){
+// 				consolo.log(req.responseText);
+				v_disp.innerHTML = req.responseText;
+			}
+		}
+		req.send();
+	}
+
+	function f_postAjax(){
+
+		var req = new XMLHttpRequest();
+// 		req.open("post","ajax_get.jsp",true); 
+		req.open("post","/webPro/Ajax",true); 
+		req.onreadystatechange=function(){
+			if(req.readyState == 4 && req.status == 200){
+				console.log(req.responseText); // json object(문자열 데이터)전달 받았어요.
+				console.log(JSON.parse(req.responseText)); // JS객체로 변환
+				var data = JSON.parse(req.responseText);
+				v_disp.innerHTML = `<h4>robotcar ${data.key}</h4>`;
+			}
+		}
+		// send()에서는 문자열 자체로 넘어가기 때문에 넘어가는 content의 타입을 지정하고
+		// 어떤 타입으로 넘어가는지 명시해야 한다.
+		// post방식으로 데이터를 넘겨줄 때 꼭 requestHeader속성을 설정한다.
+		// content-type: http통신에서 전송되는 데이터의 타입을 나타내는 헤더정보
+		req.setRequestHeader("content-type","application/x-www-form-urlencoded;charset=utf-8");
+		req.send("key=" + v_val); // post는 data를 send메소드에 담아서 전달
+	}
+
+</script>
+</body>
+</html>
