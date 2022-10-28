@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<input type="text" id="" value="">
+	<input type="button" value="내 서버를 통해 우회" onclick="f_myServer()">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
+<script>
+	// 직접 서버를 만들어서 서버to서버 => 정책에 걸리지 않음
+	// 서버가 타겟에 요청을 하면 응답을 받는 구조
+	// 서버가 클라이언트 역할을 한다.
+	// 그 역할을 할 수 있는 api를 받아서 활용
+	
+	// 서버가 클라이언트의 역할을 하는 라이브러리를 설치
+	
+	function f_myServer(){
+		var req= new XMLHttpRequest();
+		req.open('get','/webPro/Api',true);
+		req.onreadystatechange = function(){
+			if(req.readyState == 4 && req.status == 200){
+				console.log(req.responseText);
+			}
+		}
+		req.send();
+	}
+	
+</script>
+</body>
+</html>
