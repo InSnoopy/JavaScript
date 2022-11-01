@@ -14,8 +14,9 @@ import org.apache.hc.client5.http.fluent.Request;
 /**
  * Servlet implementation class Api
  */
-@WebServlet("/webPro/Api")
+@WebServlet("/Api2")
 public class Api extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
    
@@ -26,8 +27,13 @@ public class Api extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String rtnStr = Request.get("https://www.joongang.co.kr/article/25112397#home")
-	    .execute().returnContent().asString();
+		response.setCharacterEncoding("utf-8");
+		String keywd = request.getParameter("kwd");
+		
+		String rtnStr = Request.get("https://news.google.com/rss/search?q="+keywd+"&hl=ko&gl=KR&ceid=KR:ko")
+	    .execute()
+	    .returnContent()
+	    .asString();
 		
 		PrintWriter out = response.getWriter();
 		out.print(rtnStr); // 요청받은 
