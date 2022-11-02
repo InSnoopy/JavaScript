@@ -4,7 +4,6 @@
 <%@page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-
 <%
 
 	String uId = request.getParameter("userId");

@@ -46,7 +46,7 @@
 <body>
 
 <!-- header -->
-<%@ include file="../../site/header.jsp" %>
+<%@ include file="./header.jsp" %>
 
 <!-- aside1 -->
 <%@ include file="../../site/aside1.jsp" %>	
