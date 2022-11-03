@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<a href="/site/login.jsp"></a>
+<a href="/Join.do"></a>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xl-12"><input id="userId" class="form-control"></div>
@@ -29,7 +29,7 @@
 			<div class="col-xl-12">
 				<input id="loginBtn" type="button" value="로그인" class="btn btn-success col-xs-12">
 			</div>
-			<div class="col-xl-12"><a href="join.html">회원가입하기</a></div>
+			<div class="col-xl-12"><a href="/Join.do">회원가입하기</a></div>
 		</div>
 	</div>
 </body>

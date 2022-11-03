@@ -19,7 +19,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/site/login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/site/login.jsp"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
