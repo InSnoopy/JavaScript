@@ -37,6 +37,7 @@ public class Join extends HttpServlet {
 		// 결과를 처리하고 응답데이터를 담은 객체를 VIEW페이지로 보내줘야 해요
 		RequestDispatcher disp = request.getRequestDispatcher("site/index.jsp");
 		disp.forward(request, response);
+		// response.sendRedirect("site/index.jsp");
 	}
 
 	/**

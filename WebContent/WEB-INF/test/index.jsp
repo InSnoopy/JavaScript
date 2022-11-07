@@ -32,6 +32,10 @@
       color: white;
       padding: 15px;
     }
+    .pager{
+	   float:left;
+    }
+    
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
@@ -56,8 +60,71 @@
       <h1>Welcome</h1>
       <p>WEB-IFN inner index jsp...</p>
       <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
+      <!-- 리스트 영역 -->
+	  <div id="list">
+	  
+	  	<div class="panel-group" id="accordion">
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+		        Collapsible Group 1</a>
+		      </h4>
+		    </div>
+		    <div id="collapse1" class="panel-collapse collapse in">
+		      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+		      commodo consequat.</div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+		        Collapsible Group 2</a>
+		      </h4>
+		    </div>
+		    <div id="collapse2" class="panel-collapse collapse">
+		      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+		      commodo consequat.</div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+		        Collapsible Group 3</a>
+		      </h4>
+		    </div>
+		    <div id="collapse3" class="panel-collapse collapse">
+		      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+		      commodo consequat.</div>
+		    </div>
+		  </div>
+		</div>
+	  
+	  </div>
+	  
+	  <%-- 페이지 영역 --%>
+	  <ul class="pager">
+		  <li><a href="#">Previous</a></li>
+      </ul>
+      <ul class="pagination pager">
+		  <li><a href="#">1</a></li>
+		  <li><a href="#">2</a></li>
+		  <li><a href="#">3</a></li>
+		  <li><a href="#">4</a></li>
+		  <li><a href="#">5</a></li>
+	  </ul>
+	  <ul class="pager">
+		  <li><a href="#">Next</a></li>
+      </ul>
+	  
     </div>
     
 <!-- aside2 -->

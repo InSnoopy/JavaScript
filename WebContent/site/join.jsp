@@ -9,6 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.2.1/jquery.serializejson.min.js"></script>
 
 
 </head>
@@ -223,13 +224,21 @@
 			역직렬화(JSON => Obj): byte로 변환된 데이터를 원래의 객체 또는 데이터로 변환하는 기술 (deserializing, unmarshal, parse)
 		*/
 		
-		var v_data = $('form').serialize();
-		console.log("직렬화된 데이터 >> " + v_data);
+		// var v_data = $('form').serialize();  // urlencoded형식 (key=value&k=v...)
+		// var v_data = $('form').serializeArray(); // object array형식([{},{},...])
+		var v_data = $('form').serializeJSON(); // json object
+		
+		
+		console.log("직렬화된 데이터 >> " ,v_data);
 		
 		$.ajax({
-			typy: 'post',
-			url: '<%=request.getContextPath()%>/site/member.jsp',
-			data: v_data,
+			type: 'post',
+			url: '<%=request.getContextPath()%>/site/member_json.jsp',
+			// 제이쿼리가 아닌 자바스크립트(XHR객체사용)로 AJAX통신시 요청데이터에 컨텐츠타입을 꼭 명시해야 하지만,
+			// 제이쿼리는 자동으로 해줌으로 행략가능
+			// content-type: 'application/x-www-urlencoded', 
+			// data: v_data, // serialize() 사용시 넘겨주는 데이터
+			data: JSON.stringify(v_data), // serializeArray() 사용시 데이터 직렬화 필요
 			dataType: 'json',
 			success:function(rst){
 				console.log(rst);
